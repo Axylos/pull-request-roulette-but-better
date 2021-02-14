@@ -1,0 +1,28 @@
+section.section.is-large
+  div.container
+    div.columns.is-centered
+      div.card
+        div.card-content
+          form action="register" method="post"
+            input type="hidden" name="authenticity_token" value=@token
+            div.field
+              label.label for="Username" Username
+              div.control
+                input.input#username name="username" type="text" required="" placeholder="Your Username"
+            div.field
+              label.label for="email" Email
+              div.control
+                input.input#email name = "email" type="email" required="" placeholder="Your Email"
+            label.label for="password" Password
+            div.field
+              div.control
+                input.input#password name="password" type="password" required="" placeholder="Password"
+            label.label for="password_confirmation" Confirm Password
+            div.field
+              div.control
+                input.input#password_confirmation name="password_confirmation" type="password" required="" placeholder="Password"
+
+            div.field
+              div.control
+                button.button.is-link Submit 
+

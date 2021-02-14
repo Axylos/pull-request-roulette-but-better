@@ -1,0 +1,19 @@
+section.section.is-large
+  div.container
+    div.columns.is-centered
+      div.card
+        div.card-content
+          form action="login" method="post"
+            input type="hidden" name="authenticity_token" value=@token
+            label.label for="Username" Username
+            div.field
+              div.control
+                input.input#username name="username" type="email" required="" placeholder="Your Username"
+            label.label for="password" Password
+            div.field
+              div.control
+                input.input#password name="password" type="password" required="" placeholder="Password"
+            div.field
+              div.control
+                button.button.is-link Submit 
+

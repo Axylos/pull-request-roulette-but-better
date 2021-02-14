@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      | PullRequestRouletteButBetter
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    nav.navbar@navigation
+      div.navbar-menu
+        div.navbar-start
+          a.navbar-item href="/login" login
+          a.navbar-item href="/register" Sign Up
+          a.navbar-item = "wat"
+    = yield
+

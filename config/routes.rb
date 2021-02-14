@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   resources :sessions
 
   root to: "welcome#main"
+  get "login", to: "sessions#login"
+  get "register", to: "sessions#register"
+  post "register", to: "users#create"
+  post "login", to: "sessions#create"
+  resources :reviews
 end
