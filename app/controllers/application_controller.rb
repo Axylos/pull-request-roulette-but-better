@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   def authenticate! 
     token = session[:token]
 

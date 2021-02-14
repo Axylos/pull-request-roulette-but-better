@@ -13,7 +13,9 @@
 ActiveRecord::Schema.define(version: 2021_02_14_205947) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "mail_messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.json "header", null: false

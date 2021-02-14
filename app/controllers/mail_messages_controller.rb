@@ -11,17 +11,18 @@ class MailMessagesController < ApplicationController
     user = User.find_by(email: email)
 
     msg = MailMessage.new(
-     subject: header[:Subject],
+      subject: header[:Subject].first,
      from: email,
-     message_id: header["Message-Id"],
-     date: header[:Date],
+     message_id: header["Message-Id"].first,
+     date: header[:Date].first,
      user: user,
      body: body,
      header: header.to_json,
+     to: header[:To].first
     )
 
     msg.save!
-    render_json :created
+    render json: msg
   end
 
   def mail_params

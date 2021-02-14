@@ -3,6 +3,7 @@ section.section
     div.columns.is-centered
       div.card
         div.card-content
+          p = @token
           form action="register" method="post"
             input type="hidden" name="authenticity_token" value=@token
             div.field

@@ -1,5 +1,6 @@
 require 'byebug'
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def create
     data = user_params
     @user = User.new(user_params)
