@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post "register", to: "users#create"
   post "login", to: "sessions#create"
   get "logout", to: "sessions#destroy"
+  post "/messages/inbound", to: "mail_messages#inbound"
   resources :reviews
 end

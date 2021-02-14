@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   def authenticate! 
     token = session[:token]
 
+    p 'called'
     begin
       user_data = JsonWebToken.decode(token)
       self.current_user = User.find(user_data[:user_id])

@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_061919) do
+ActiveRecord::Schema.define(version: 2021_02_14_205947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mail_messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.json "header", null: false
+    t.text "body", null: false
+    t.uuid "in_reply_to_id"
+    t.uuid "in_reference_to_id"
+    t.uuid "user_id"
+    t.text "subject", null: false
+    t.text "from", null: false
+    t.text "to", null: false
+    t.text "date", null: false
+    t.text "message_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["in_reference_to_id"], name: "index_mail_messages_on_in_reference_to_id"
+    t.index ["in_reply_to_id"], name: "index_mail_messages_on_in_reply_to_id"
+    t.index ["user_id"], name: "index_mail_messages_on_user_id"
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "username", null: false
@@ -22,4 +40,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_061919) do
     t.string "gh_username"
   end
 
+  add_foreign_key "mail_messages", "mail_messages", column: "in_reference_to_id"
+  add_foreign_key "mail_messages", "mail_messages", column: "in_reply_to_id"
+  add_foreign_key "mail_messages", "users"
 end
