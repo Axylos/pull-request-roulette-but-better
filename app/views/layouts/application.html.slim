@@ -8,11 +8,17 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    nav.navbar@navigation
+    nav.navbar.is-primary@navigation
       div.navbar-menu
         div.navbar-start
-          a.navbar-item href="/login" login
+          a.navbar-item href="/login" Login
           a.navbar-item href="/register" Sign Up
-          a.navbar-item = "wat"
+          a.navbar-item href= "/logout" Logout
+
+    - if flash[:alert]
+        div.notification.is-danger
+          button.delete
+          div = flash[:alert]
     = yield
+
 

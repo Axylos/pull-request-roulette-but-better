@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get "register", to: "sessions#register"
   post "register", to: "users#create"
   post "login", to: "sessions#create"
+  get "logout", to: "sessions#destroy"
   resources :reviews
 end
