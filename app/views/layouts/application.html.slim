@@ -11,9 +11,11 @@ html
     nav.navbar.is-primary@navigation
       div.navbar-menu
         div.navbar-start
-          a.navbar-item href="/login" Login
-          a.navbar-item href="/register" Sign Up
-          a.navbar-item href= "/logout" Logout
+          - if @current_user
+            a.navbar-item href= "/logout" Logout
+          - else 
+            a.navbar-item href="/login" Login
+            a.navbar-item href="/register" Sign Up
 
     - if flash[:alert]
         div.notification.is-danger
