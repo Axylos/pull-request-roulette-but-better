@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_205947) do
     t.text "to", null: false
     t.text "date", null: false
     t.text "message_id", null: false
+    t.text "patch"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["in_reference_to_id"], name: "index_mail_messages_on_in_reference_to_id"

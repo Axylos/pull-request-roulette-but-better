@@ -119,6 +119,9 @@ GEM
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-byebug (3.8.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.6)
@@ -161,6 +164,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.0.3)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -251,9 +255,11 @@ DEPENDENCIES
   jwt
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
+  pry-byebug
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  rexml
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver

@@ -17,6 +17,7 @@ class CreateMailMessages < ActiveRecord::Migration[6.0]
       t.text :to, null: false
       t.text :date, null: false
       t.text :message_id, null: false, unique: true
+      t.text :patch
 
 
       t.timestamps
